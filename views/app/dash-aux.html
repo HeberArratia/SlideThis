@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<title>BusApp</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+	<link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet">
+	<link rel="stylesheet" href="../css/styles.css">
+	<link rel="stylesheet" href="../css/fonts.css">
+	<!-- include the style -->
+	<link rel="stylesheet" href="../css/alertify.min.css" />
+	<!-- include a theme -->
+	<link rel="stylesheet" href="../css/themes/semantic.min.css" >
+</head>
+<body>
+	<div id="barra" class="container-fluit">
+		<div class="container" id="barra-cont">
+			<div class="row">
+				<div id="logo" class="col-xs-3">
+					<h1>Bus<span>App</span></h1>
+				</div>
+				<div class="col-xs-9">
+					<div id="datos-user" class="pull-right">
+						<span><i class="glyphicon glyphicon-user"></i> <strong class="hidden-sm hidden-xs">Rut: </strong>{{ user.username }}</span>
+						<span id="info-cargo"><i class="glyphicon glyphicon-certificate"></i> <strong class="hidden-sm hidden-xs">Cargo: </strong>Auxiliar</span>
+						<span><a href="../salir"><i class="glyphicon glyphicon-off"></i> Cerrar Sesión</span></a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div id="content-dash-op" class="container-fluit">
+		<div id="contenet-dash-op-cont" class="container-fluit">
+			{% include "./buscador.html" %}
+		</div>
+		{% include "./bus.html" %}
+	</div>
+	<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.1/jquery.min.js'></script>
+	<script src='../js/blockUI.js'></script>
+	<script src='../js/alertify.min.js'></script>
+	<script src='/socket.io/socket.io.js'></script>
+	<script src='../js/script.js'></script>
+</body>
+</html>

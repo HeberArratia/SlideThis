@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Dashboard - SlideThis</title>
+	<!-- Estilos --> 
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+	<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/angular-loading-bar/0.9.0/loading-bar.min.css' type='text/css' media='all' />
+	<link rel="stylesheet" href="/lib/css/fonts.css">
+	<link rel="stylesheet" href="/lib/css/styles.css">
+	<!-- JS & jQuery Libs --> 
+	<script src='/lib/js/jquery.min.js'></script>
+	<script src='/lib/js/jquery-ui.min.js'></script>
+	<script src="/lib/js/bootstrap.min.js"></script>
+	<script src='https://cdnjs.cloudflare.com/ajax/libs/bootbox.js/4.4.0/bootbox.min.js'></script>
+	<script src="/socket.io/socket.io.js"></script>
+	<!-- Angular --> 
+	<script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js'></script>
+	<!-- Angular Modules --> 
+	<script src='/lib/js/sortable.min.js'></script>
+	<script src='https://code.angularjs.org/1.5.8/angular-animate.min.js'></script>
+	<script src="/lib/js/ui-layout.js"></script>
+	<script src='https://cdnjs.cloudflare.com/ajax/libs/angular-loading-bar/0.9.0/loading-bar.min.js'></script>
+	<!-- App --> 
+	<script src='/app/app.js'></script>
+	<script src='/app/controllers/DashCtrl.js'></script>
+</head>
+<body>
+
+	<!-- Barra superior -->
+	<div id="main-bar" class="container-fluit">
+		{% include "./row-1.html" %}
+		{% include "./row-2.html" %}
+	</div>
+
+	<div id="page-container" ng-app="mainApp">
+		
+		<div id="body-container" ng-controller="DashCtrl">
+			<!-- Bloqueo general de pantalla --> 
+			<div id="block" ng-show="viewBlock"></div>
+
+			<!-- Modal editar columna -->
+			<div class="add-container" ng-show='viewAdd'>
+				<div class="add">
+					<div class="icon">
+						<i ng-class="{'icon-text_fields': viewText , 
+						'icon-photo_camera': viewImg, 
+						'icon-videocam': viewVideo}"></i>
+					</div>
+					<div class="content-form-text" ng-show="viewText">
+						<input type="text" placeholder="Title" ng-model="int1">
+						<textarea placeholder="Secondary text" ng-model="int2"></textarea>
+					</div>
+					<div class="content-form-img" ng-show="viewImg">
+						<div class="backinput">
+							<input type="text" placeholder="URL IMAGE" ng-model="urlimg">
+						</div>
+					</div>
+					<div class="content-form-img" ng-show="viewVideo">
+						<div class="backinput">
+							<input type="text" placeholder="URL VIDEO YOUTUBE" ng-model="urlvideo">
+						</div>
+					</div>
+					<div class="content-btns">
+						<div class="btn-add btn-save pull-right" ng-click="saveColumn()">Ok</div>
+						<div class="btn-add btn-close pull-right" ng-click="closeAdd()">Close</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- Bloqueo body seccion -->
+			<div class="sobre" ng-show='viewConfig'></div>
+
+			<!-- Templates de texto -->
+			<div id="config" ng-show='viewConfig'>
+				<h2>Select theme</h2>
+				<span class="icon-highlight_off pull-right" ng-click='switchConfig()'></span>
+				<div class="template" ng-click="addColumn('text', 1)">
+					<div class="select">
+						<img src="/lib/img/t1.png" alt="">	
+						<div class="sobretem">
+							<span class="icon-control_point"></span>
+						</div>
+					</div>
+					<div class="des">
+						<h4>Shopping All</h4>
+					</div>
+				</div>
+				<div class="template" ng-click="addColumn('text', 2)">
+					<div class="select">
+						<img src="/lib/img/t2.png" alt="">	
+						<div class="sobretem">
+							<span class="icon-control_point"></span>
+						</div>
+					</div>
+					<div class="des">
+						<h4>Under Blue</h4>
+					</div>
+				</div>
+			</div>
+ 			
+ 			<!-- Agregar columnas de tipos -->
+			<div id="sidebar">
+		        <ul>
+			        <li ng-click='switchConfig()' ng-class="{select: viewConfig}">
+			            <i class="icon-text_fields text"></i><p class="icontitle">Text</p>
+			        </li>
+			        <li ng-click="addColumn('image')">
+			        	<i class="icon-photo_camera image"></i><p class="icontitle">Image</p>
+			        </li> 
+			        <li ng-click="addColumn('video')">
+			        	<i class="icon-videocam video"></i><p class="icontitle">Video</p>
+			        </li> 
+		        </ul>	
+			</div>
+
+			<!-- Columnas -->
+			<div id="dash-elements">
+				<div id="main-columns" ui-layout="{ flow : 'column', disableToggle : true, disableMobileToggle : true, dividerSize : 16 }"
+				ui-sortable="sortableOptions" ng-model="columns">
+					<div class="column" ui-layout-container min-size="180px"
+					ng-attr-id="[[ 'col-' + $index]]" ng-repeat="column in columns"
+					ng-class="{'colu-text-bg': column.type == 'text' , 'colu-img-bg': column.type == 'image',
+              		'colu-video-bg': column.type == 'video',
+              		'no-border': $index == (columns.length - 1)}" >
+						<div class="head">
+							<span class="ico-head"
+							ng-class="{'icon-text_fields': column.type == 'text' , 'icon-photo_camera': column.type == 'image', 'icon-videocam': column.type == 'video'}"></span>
+						</div>
+						<div class="tools">
+							<span ng-click='configColumn($index)' class="ico-center icon-settings"></span>
+							<span class="ico-center icon-code"></span>
+							<span class=" ico-center icon-delete_forever2"
+							ng-click="removeColumn($index)"></span>	
+						</div>
+					</div>
+				</div>	
+			</div>
+
+		</div> <!-- Fin body container -->
+	</div>
+</body>
+</html>

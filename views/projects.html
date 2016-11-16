@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Projets - SlideThis</title>
+	<!-- Estilos --> 
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+	<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/angular-loading-bar/0.9.0/loading-bar.min.css' type='text/css' media='all' />
+	<link rel="stylesheet" href="/lib/css/fonts.css">
+	<link rel="stylesheet" href="/lib/css/styles.css">
+	<!-- JS & jQuery Libs --> 
+	<script src='/lib/js/jquery.min.js'></script>
+	<script src='/lib/js/jquery-ui.min.js'></script>
+	<script src="/lib/js/bootstrap.min.js"></script>
+	<script src='https://cdnjs.cloudflare.com/ajax/libs/bootbox.js/4.4.0/bootbox.min.js'></script>
+	<script src="/socket.io/socket.io.js"></script>
+	<!-- Angular --> 
+	<script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js'></script>
+	<!-- Angular Modules --> 
+	<script src='/lib/js/sortable.min.js'></script>
+	<script src='https://code.angularjs.org/1.5.8/angular-animate.min.js'></script>
+	<script src="/lib/js/ui-layout.js"></script>
+	<script src='https://cdnjs.cloudflare.com/ajax/libs/angular-loading-bar/0.9.0/loading-bar.min.js'></script>
+	<script src='/app/app.js'></script>
+	<script src='/app/controllers/ProjectsCtrl.js'></script>
+</head>
+<body>
+	<div id="page-container">
+		<!-- Barra superior -->
+		<div id="main-bar" class="container-fluit">
+			{% include "./row-1.html" %}
+		</div>
+		<!-- Proyectos -->
+		<div id="projects" ng-app="mainApp">
+			<div ng-controller="ProjectsCtrl">
+				<div id="addPro" class="container">
+					<div id="btn-pro">
+						<h3 ng-click="addProject()"><span class="icon-add"></span></h3>
+					</div>
+				</div>
+				<h2>My Projects</h2>
+				<div class="container" id="content-projects">
+					<div class="project" ng-repeat="project in projects" 
+					ng-style="{'background': colors[$index]}">
+						<div class="content-pro"></div>
+						<h4>[[ project.name ]]</h4>
+						<span>ID: [[ project._id ]]</span>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

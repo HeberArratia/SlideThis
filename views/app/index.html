@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<title>BusApp</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+	<link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet">
+	<link rel="stylesheet" href="css/styles.css">
+	<link rel="stylesheet" href="css/fonts.css">
+</head>
+<body>
+	<div id="barra" class="container-fluit">
+		<div class="container" id="barra-cont">
+			<div class="row">
+				<div id="logo" class="col-xs-4">
+					<h1>Bus<span>App</span></h1>
+				</div>
+				<div class="col-xs-8">
+					
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<div id="content" class="container-fluit">
+		<div id="sobre-color">
+			<div id="content-cont" class="container">
+				<div id="content-login">
+					<h2>Bienvenido</h2>
+					<form id="form" method="POST" action="/login">
+						<div class="form-group">
+					    	<label for="rut">Ingrese su rut:</label>
+					    	<input type="text" class="form-control" id="rut" placeholder="sin puntos ni guión" name="username" required>
+						</div>
+						<div class="form-group">
+					    	<label for="pwd">Ingrese su contraseña:</label>
+					    	<input type="password" class="form-control" id="pwd" placeholder="contraseña" name="password" required>
+						</div>
+						{% if error_message %}
+							<div id="error-msg" class="alert alert-danger">
+								{{ error_message }}
+							</div>
+						{% endif %}
+						<button type="submit" class="btn btn-default">INICIAR</button>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

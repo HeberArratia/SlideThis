@@ -1,0 +1,34 @@
+<div id="form-op" class="form-inline">
+	<div class="form-group hidden-sm hidden-xs ">
+    	<input type="text" class="form-control" id="origen" placeholder="Origen: Temuco" disabled>
+	</div>
+	<div class="form-group hidden-sm hidden-xs">
+    	<input type="text" class="form-control" id="destino" placeholder="Destino: Pucón" disabled>
+	</div>
+	<div class="form-group">
+    	<input type="text" class="form-control" id="in-fecha" value="01/01/2016">
+	</div>
+	<div class="form-group"> 
+	<select class="form-control selectpicker" id="in-hora">
+		{% if user.terminal %}	
+			{% if user.terminal == 1 %}	
+				<option>10:00</option>
+			  	<option>13:00</option>
+			  	<option>15:00</option>
+			  	<option>18:00</option>
+			{% elseif user.terminal == 2 %}
+				<option>11:00</option>
+			  	<option>14:00</option>
+			  	<option>16:00</option>
+			  	<option>19:00</option>				
+			{% endif %}
+		{% else %}
+			<option>10:00</option>
+			<option>13:00</option>
+			<option>15:00</option>
+			<option>18:00</option>
+		{% endif %}
+	</select>
+	</div>
+	<button type="submit" id="btn-buscar" class="btn btn-default">CARGAR</button>
+</div>

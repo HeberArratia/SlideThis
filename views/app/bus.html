@@ -1,0 +1,430 @@
+<div class="bloqued">
+<div id="panel-op" class="container">
+	<div class="row">
+		<div class="col-xs-4">
+			<div id="datos">
+				<h3>		
+				{% if user.cargo == 1 %}	
+					Vender pasaje
+				{% elseif user.cargo == 2 %}
+					Acciones sobre el recorrido
+			    {% endif %}
+				</h3>
+				<span id="muestra-fecha">Fecha: XX/XX/XXXX</span>
+				<span id="muestra-hora">Hora: XX:XX</span>
+				<!--<span><strong>Pasajeros de pie: X</strong></span>-->
+			</div>
+		</div>
+		<div class="col-xs-8">
+			<div id="color-info" class="pull-right">
+				<span><i class="icon-square dispo"></i> Disponible</span>
+				<span><i class="icon-square vendi"></i> Vendido</span>
+				<span><i class="icon-square ocu"></i> Ocupado</span>
+			</div>
+		</div>
+	</div>
+	<div id="bus">
+		<table>
+		  <tr>
+		    <th>
+		    	<div id="a03" class="number-a">	
+					<i>03</i>
+					<div class="back"></div>
+					<span class="icon-check-circle"></span>
+				</div>
+		    </th>
+		    <th>
+		    	<div id="a07" class="number-a">
+		    		<i>07</i>
+		    		<div class="back"></div>
+					<span class="icon-check-circle"></span>
+		    	</div>
+		    </th> 
+		    <th>
+		    	<div id="a11" class="number-a">
+		    		<i>11</i>
+		    		<div class="back"></div>
+					<span class="icon-check-circle"></span>
+		    	</div>
+		    </th>
+		    <th>
+		    	<div id="a15" class="number-a">
+		    		<i>15</i>
+		    		<div class="back"></div>
+					<span class="icon-check-circle"></span>
+		    	</div>
+		    </th>
+		    <th>
+		    	<div id="a19" class="number-a">
+		    		<i>19</i>
+		    		<div class="back"></div>
+					<span class="icon-check-circle"></span>
+		    	</div>
+		    </th>
+		    <th>
+		    	<div id="a23" class="number-a">
+		    		<i>23</i>
+		    		<div class="back"></div>
+					<span class="icon-check-circle"></span>
+		    	</div>
+		    </th>
+		    <th>
+		    	<div id="a27" class="number-a">
+		    		<i>27</i>
+		    		<div class="back"></div>
+					<span class="icon-check-circle"></span>
+		    	</div>
+		    </th>
+		    <th>
+		    	<div id="a31" class="number-a">
+		    		<i>31</i>
+		    		<div class="back"></div>
+					<span class="icon-check-circle"></span>
+		    	</div>
+		    </th>
+		    <th>
+		    	<div id="a35" class="number-a">
+		    		<i>35</i>
+		    		<div class="back"></div>
+					<span class="icon-check-circle"></span>
+		    	</div>
+		    </th>
+		    <th>
+		    	<div id="a39" class="number-a">
+		    		<i>39</i>
+		    		<div class="back"></div>
+					<span class="icon-check-circle"></span>
+		    	</div>
+		    </th>
+		    <th>
+		    	<div id="a43" class="number-a">
+		    		<i>43</i>
+		    		<div class="back"></div>
+					<span class="icon-check-circle"></span>
+		    	</div>
+		    </th>
+		  </tr>
+		  <tr>
+		  	<th>
+		  		<div id="a04" class="number-a">
+		  			<i>04</i>
+		  			<div class="back"></div>
+					<span class="icon-check-circle"></span>
+		  		</div>
+		  	</th>
+		    <th>
+		    	<div id="a08" class="number-a">
+		    		<i>08</i>
+		    		<div class="back"></div>
+					<span class="icon-check-circle"></span>
+		    	</div>
+		    </th>
+		    <th>
+		    	<div id="a12" class="number-a">
+		    		<i>12</i>
+		    		<div class="back"></div>
+					<span class="icon-check-circle"></span>
+		    	</div>
+		    </th> 
+		    <th>
+		    	<div id="a16" class="number-a">
+		    		<i>16</i>
+		    		<div class="back"></div>
+					<span class="icon-check-circle"></span>
+		    	</div>
+		    </th>
+		    <th>
+		    	<div id="a20" class="number-a">
+		    		<i>20</i>
+		    		<div class="back"></div>
+					<span class="icon-check-circle"></span>
+		    	</div>
+		    </th>
+		    <th>
+		    	<div id="a24" class="number-a">
+		    		<i>24</i>
+		    		<div class="back"></div>
+					<span class="icon-check-circle"></span>
+		    	</div>
+		    </th>
+		    <th>
+		    	<div id="a28" class="number-a">
+		    		<i>28</i>
+		    		<div class="back"></div>
+					<span class="icon-check-circle"></span>
+		    	</div>
+		    </th>
+		    <th>
+		    	<div id="a32" class="number-a">
+		    		<i>32</i>
+		    		<div class="back"></div>
+					<span class="icon-check-circle"></span>
+		    	</div>
+		    </th>
+		    <th>
+		    	<div id="a36" class="number-a">
+		    		<i>36</i>
+		    		<div class="back"></div>
+					<span class="icon-check-circle"></span>
+		    	</div>
+		    </th>
+		    <th>
+		    	<div id="a40" class="number-a">
+		    		<i>40</i>
+		    		<div class="back"></div>
+					<span class="icon-check-circle"></span>
+		    	</div>
+		    </th>
+		    <th>
+		    	<div id="a44" class="number-a">
+		    		<i>44</i>
+		    		<div class="back"></div>
+					<span class="icon-check-circle"></span>
+		    	</div>
+		    </th>
+		  </tr>
+		  <tr>
+			    <th>
+		    		<div id="p01" class="number-a hpie">
+		    			<i></i>
+		    			<div class="back"></div>
+						<span class="icon-check-circle"></span>
+		    		</div>
+		    	</th>
+		    	<th>
+		    		<div id="p02" class="number-a hpie">
+		    			<i></i>
+		    			<div class="back"></div>
+						<span class="icon-check-circle"></span>
+		    		</div>
+		    	</th>
+		    	<th>
+		    		<div id="p03" class="number-a hpie">
+		    			<i></i>
+		    			<div class="back"></div>
+						<span class="icon-check-circle"></span>
+		    		</div>
+		    	</th>
+		    	<th>
+		    		<div id="p04" class="number-a hpie">
+		    			<i></i>
+		    			<div class="back"></div>
+						<span class="icon-check-circle"></span>
+		    		</div>
+		    	</th>
+		    	<th>
+		    		<div id="p05" class="number-a hpie">
+		    			<i></i>
+		    			<div class="back"></div>
+						<span class="icon-check-circle"></span>
+		    		</div>
+		    	</th>
+		    	<th>
+		    		<div id="p06" class="number-a hpie">
+		    			<i></i>
+		    			<div class="back"></div>
+						<span class="icon-check-circle"></span>
+		    		</div>
+		    	</th>
+		    	<th>
+		    		<div id="p07" class="number-a hpie">
+		    			<i></i>
+		    			<div class="back"></div>
+						<span class="icon-check-circle"></span>
+		    		</div>
+		    	</th>
+		    	<th>
+		    		<div id="p08" class="number-a hpie">
+		    			<i></i>
+		    			<div class="back"></div>
+						<span class="icon-check-circle"></span>
+		    		</div>
+		    	</th>
+		    	<th>
+		    		<div id="p09" class="number-a hpie">
+		    			<i></i>
+		    			<div class="back"></div>
+						<span class="icon-check-circle"></span>
+		    		</div>
+		    	</th>
+		    	<th>
+		    		<div id="p10" class="number-a hpie">
+		    			<i></i>
+		    			<div class="back"></div>
+						<span class="icon-check-circle"></span>
+		    		</div>
+		    	</th>
+		    	<th>
+		    	</th>
+		    </tr>
+		  <tr>
+		  	<th>
+		  		<div id="a02" class="number-a">
+		  			<i>02</i>
+		  			<div class="back"></div>
+					<span class="icon-check-circle"></span>
+		  		</div>
+		  	</th>
+		    <th>
+		    	<div id="a06" class="number-a">
+		    		<i>06</i>
+		    		<div class="back"></div>
+					<span class="icon-check-circle"></span>
+		    	</div>
+		    </th>
+		    <th>
+		    	<div id="a10" class="number-a">
+		    		<i>10</i>
+		    		<div class="back"></div>
+					<span class="icon-check-circle"></span>
+		    	</div>
+		    </th> 
+		    <th>
+		    	<div id="a14" class="number-a">
+		    		<i>14</i>
+		    		<div class="back"></div>
+					<span class="icon-check-circle"></span>
+		    	</div>
+		    </th>
+		    <th>
+		    	<div id="a18" class="number-a">
+		    		<i>18</i>
+		    		<div class="back"></div>
+					<span class="icon-check-circle"></span>
+		    	</div>
+		    </th>
+		    <th>
+		    	<div id="a22" class="number-a">
+		    		<i>22</i>
+		    		<div class="back"></div>
+					<span class="icon-check-circle"></span>
+		    	</div>
+		    </th>
+		    <th>
+		    	<div id="a26" class="number-a">
+		    		<i>26</i>
+		    		<div class="back"></div>
+					<span class="icon-check-circle"></span>
+		    	</div>
+		    </th>
+		    <th>
+		    	<div id="a30" class="number-a">
+		    		<i>30</i>
+		    		<div class="back"></div>
+					<span class="icon-check-circle"></span>
+		    	</div>
+		    </th>
+		    <th>
+		    	<div id="a34"class="number-a">
+		    		<i>34</i>
+		    		<div class="back"></div>
+					<span class="icon-check-circle"></span>
+		    	</div>
+		    </th>
+		    <th>
+		    	<div id="a38" class="number-a">
+		    		<i>38</i>
+		    		<div class="back"></div>
+					<span class="icon-check-circle"></span>
+		    	</div>
+		    </th>
+		    <th>
+		    	<div id="a42" class="number-a">
+		    		<i>42</i>
+		    		<div class="back"></div>
+					<span class="icon-check-circle"></span>
+		    	</div>
+		    </th>
+		  </tr>
+		  <tr>
+		  	<th>
+		  		<div id="a01" class="number-a">
+		  			<i>01</i>
+		  			<div class="back"></div>
+					<span class="icon-check-circle"></span>
+		  		</div>
+		  	</th>
+		    <th>
+		    	<div id="a05" class="number-a">
+		    		<i>05</i>
+		    		<div class="back"></div>
+					<span class="icon-check-circle"></span>
+		    	</div>
+		    </th>
+		    <th>
+		    	<div id="a09" class="number-a">
+		    		<i>09</i>
+		    		<div class="back"></div>
+					<span class="icon-check-circle"></span>
+		    	</div>
+		    </th> 
+		    <th>
+		    	<div id="a13" class="number-a">
+		    		<i>13</i>
+		    		<div class="back"></div>
+					<span class="icon-check-circle"></span>
+		    	</div>
+		    </th>
+		    <th>
+		    	<div id="a17" class="number-a">
+		    		<i>17</i>
+		    		<div class="back"></div>
+					<span class="icon-check-circle"></span>
+		    	</div>
+		    </th>
+		    <th>
+		    	<div id="a21" class="number-a">
+		    		<i>21</i>
+		    		<div class="back"></div>
+					<span class="icon-check-circle"></span>
+		    	</div>
+		    </th>
+		    <th>
+		    	<div id="a25" class="number-a">
+		    		<i>25</i>
+		    		<div class="back"></div>
+					<span class="icon-check-circle"></span>
+		    	</div>
+		    </th>
+		    <th>
+		    	<div id="a29" class="number-a">
+		    		<i>29</i>
+		    		<div class="back"></div>
+					<span class="icon-check-circle"></span>
+		    	</div>
+		    </th>
+		    <th>
+		    	<div id="a33" class="number-a">
+		    		<i>33</i>
+		    		<div class="back"></div>
+					<span class="icon-check-circle"></span>
+		    	</div>
+		    </th>
+		    <th>
+		    	<div id="a37" class="number-a">
+		    		<i>37</i>
+		    		<div class="back"></div>
+					<span class="icon-check-circle"></span>
+		    	</div>
+		    </th>
+		    <th>
+		    	<div id="a41" class="number-a">
+		    		<i>41</i>
+		    		<div class="back"></div>
+					<span class="icon-check-circle"></span>
+		    	</div>
+		    </th>
+		  </tr>
+		</table>
+	</div>
+	<div id="botones" class="pull-right">
+		{% if user.cargo == 2 %}	
+		<button type="submit" class="btn btn-default btns btn-habilitar">Habilitar</button>
+	    {% endif %}
+		<button type="submit" class="btn btn-default btns btn-vender ">Vender</button>
+		{% if user.cargo == 2 %}
+		<button type="submit" class="btn btn-default btns btn-ocupar">Ocupar</button>
+		{% endif %}
+	</div>
+</div>
+</div>

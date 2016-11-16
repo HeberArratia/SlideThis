@@ -1,0 +1,27 @@
+{
+  "name": "fundamentos-nodejs-devcode",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "node server.js"
+  },
+  "author": "Heber Arratia",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "connect-flash": "^0.1.1",
+    "connect-redis": "^3.1.0",
+    "cookie-parser": "^1.4.3",
+    "express": "^4.14.0",
+    "express-session": "^1.14.0",
+    "formidable": "^1.0.17",
+    "mongoose": "^4.5.5",
+    "passport": "^0.3.2",
+    "passport-local": "^1.0.0",
+    "path": "^0.12.7",
+    "slug": "^0.9.1",
+    "socket.io": "^1.5.1",
+    "swig": "^1.4.2"
+  }
+}
