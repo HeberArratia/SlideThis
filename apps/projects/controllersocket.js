@@ -62,7 +62,22 @@ module.exports = function(io){
 			});	 
  		});
 
-		
+		socket.on('updatecolumns', function(columns) {
+			Column.remove({idpro : columns[0].idpro}, function(err, result) {
+			    if(err){
+			    	console.log("error al eliminar en actualizar las columnas");
+			    } else {
+			     	console.log("todas las columnas con ese id de pro removidas");
+			     	Column.collection.insert(columns, function(err, result){
+			     		if(err){
+					    	console.log("error al guardar las nuevas columnas actualizadas " + err);
+					    } else {
+					    	console.log("las columnas se han actualizado");
+					    }
+			     	});
+			    }
+	    	});	
+		});
 
 	});
 };

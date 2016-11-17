@@ -25,17 +25,45 @@
 	<script src='/app/app.js'></script>
 	<script src='/app/controllers/DashCtrl.js'></script>
 </head>
-<body>
+<body ng-app="mainApp">
+	<div id="page-container" ng-controller="DashCtrl">
 
-	<!-- Barra superior -->
-	<div id="main-bar" class="container-fluit">
-		{% include "./row-1.html" %}
-		{% include "./row-2.html" %}
-	</div>
-
-	<div id="page-container" ng-app="mainApp">
+		<!-- Barra superior -->
+		<div id="main-bar" class="container-fluit">
+			<div id="row-1">
+				<div id="logo">
+					<img src="/lib/img/logo.png" alt="">
+				</div>
+				<div id="profile">
+					<div id="body-profile">
+						<img class="img-user" src="http://visualoop.com/wp-content/themes/visualoop/img/there-is-no-picture-for-this-user2.png" />
+			      		<h4 class="name">{{ n_user }}</h4>
+			      		<div class="h-separate"></div>
+			  			<a href="/projects"><h4> Projects</h4></a>
+			      		<div class="h-separate"></div>
+			  			<a href="/logout"><h4 class="logout"> Logout</h4></a>
+			  		</div>
+				</div>
+			</div>
+			<div id="row-2">
+				<div id="title-project">
+					<h1>{{ n_pro }}</h1>
+				</div>
+				<div id="tools">
+					<div id="btns" class="pull-right" >
+						<div class="divisor divi-id" >
+				            ID: {{ id_pro }}</span> 
+			            </div>
+						<div class="divisor">
+				            <div class="btn" id="btn-preview"><i class="icon-desktop_windows" aria-hidden="true"></i> Preview</div>
+				            <div ng-click="saveAll()" class="btn" id="btn-save"><i class="icon-save" aria-hidden="true"></i> Save</div>
+			            </div>
+					</div>
+				</div>
+			</div>
+		</div>
 		
-		<div id="body-container" ng-controller="DashCtrl">
+		<div id="body-container">
 			<!-- Bloqueo general de pantalla --> 
 			<div id="block" ng-show="viewBlock"></div>
 			<!-- Obtener id proyecto-->

@@ -28,18 +28,23 @@ router.route('/dashboard/:idpro')
 		Project.findById(req.params.idpro, function(err, result) {
 			if(err){
 				console.log("error al encontrar el proyecto");
+				res.redirect('/projects/');
 			} else {
-				if (result.iduser == req.user._id){
-					var context = {
-						id_pro : req.params.idpro,
-						n_user : req.user.username,
-						n_pro  : result.name
-					}
-					res.render('dashboard', context);
+				if (result !== null){
+					if (result.iduser == req.user._id){
+						var context = {
+							id_pro : req.params.idpro,
+							n_user : req.user.username,
+							n_pro  : result.name
+						}
+						res.render('dashboard', context);
+					} else {
+						console.log("el usuario no es dueño de este proyecto");
+						res.redirect('/projects/');
+					}	
 				} else {
-					console.log("el usuario no es dueño de este proyecto");
 					res.redirect('/projects/');
-				}		
+				}
 			}
 		});		
 	});

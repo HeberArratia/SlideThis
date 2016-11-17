@@ -22,6 +22,19 @@ app.controller('DashCtrl', ['$scope','$filter','cfpLoadingBar', '$timeout', 'soc
     }
   }
 
+  //Guardar todas las columnas
+  $scope.saveAll = function(){
+    cfpLoadingBar.start();
+    for (var i = $scope.columns.length - 1; i >= 0; i--) {
+      $scope.columns[i]["idpro"] = $scope.idProject;
+      delete $scope.columns[i]['$$hashKey']; 
+    }
+    socket.emit('updatecolumns', $scope.columns);
+    $timeout( function(){ 
+      cfpLoadingBar.complete();
+    }, 900);
+  }
+
   /*** Switch Add (Edit)  ***/
   $scope.viewAdd = false;
   $scope.viewText = false;
@@ -69,14 +82,14 @@ app.controller('DashCtrl', ['$scope','$filter','cfpLoadingBar', '$timeout', 'soc
   /*** Data  ***/
   $scope.columns = [];
 
+   /*** Cantidad elementos  ***/
+  var cantElem;
+
   socket.on('loadcolumns', function (res) {
     $scope.columns = res;
+    cantElem = $scope.columns.length;
     $scope.$digest();
   });
-
-
-  /*** Cantidad elementos  ***/
-  cantElem = $scope.columns.length;
 
   /*** Añadir nueva columna ***/
   $scope.addColumn = function(t, tem) {
