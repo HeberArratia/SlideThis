@@ -77,12 +77,13 @@ server.use(function(req, res, next){
 	// la variable user se envia a todos los
 	// templates de nuestro proyecto
 	server.locals.user = req.user;
-	require('./sockets/')(io, req.user._id);
+	
 	// debemos poner next para que no se quede pensando
 	next();
 });
 
 require('./routers/')(server);
+require('./sockets/')(io);
 
 
 

@@ -1,5 +1,5 @@
-var sockets = function(io, iduser){
-	require('../apps/projects/controllersocket.js')(io, iduser);
+var sockets = function(io){
+	require('../apps/projects/controllersocket.js')(io);
 };
 
 //Exportamos la funcion 

@@ -1,10 +1,15 @@
-app.controller('DashCtrl', ['$scope','$filter','cfpLoadingBar', '$timeout', function($scope, $filter, cfpLoadingBar, $timeout) {
+app.controller('DashCtrl', ['$scope','$filter','cfpLoadingBar', '$timeout', 'socket', function($scope, $filter, cfpLoadingBar, $timeout, socket) {
   $scope.viewBlock = true;
   cfpLoadingBar.start();
   angular.element(document).ready(function () {
     cfpLoadingBar.complete();
     $scope.viewBlock = false;
   });
+
+  // Obtener columnas del proyecto
+  $timeout( function(){ 
+    socket.emit('columnsbyproject', $scope.idProject);
+   }, 100);
 
   /*** Switch Config Window  ***/
   $scope.viewConfig = false;
@@ -62,20 +67,13 @@ app.controller('DashCtrl', ['$scope','$filter','cfpLoadingBar', '$timeout', func
     $scope.viewAdd = false;
   }
   /*** Data  ***/
-  $scope.columns = [{
-      type            : 'text',
-      t1              : 'Bienvenido a',
-      t2              : 'tu nuevo portal'
-    },
-    {
-      type            : 'image',
-      url             : 'url de la imagen'
-    },
-    {
-      type            : 'video',
-      url             : 'url del video'
-    }
-  ];
+  $scope.columns = [];
+
+  socket.on('loadcolumns', function (res) {
+    $scope.columns = res;
+    $scope.$digest();
+  });
+
 
   /*** Cantidad elementos  ***/
   cantElem = $scope.columns.length;

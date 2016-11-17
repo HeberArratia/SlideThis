@@ -13,6 +13,10 @@ var schemas = {
 	                    type: String, 
 	                    required: [true, 'name is required']
 	                },
+	    moment:     { 
+	                  type: Date, 
+	                  default: Date.now 
+	                },
 	    iduser  :   {
 	                    type: String, 
 	                    required: [true, 'iduser is required']

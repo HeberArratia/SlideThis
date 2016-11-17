@@ -33,6 +33,7 @@
 		<!-- Proyectos -->
 		<div id="projects" ng-app="mainApp">
 			<div ng-controller="ProjectsCtrl">
+				<div ng-show="false" ng-init='idUser = "{{ id_user }}"'></div>
 				<div id="addPro" class="container">
 					<div id="btn-pro">
 						<h3 ng-click="addProject()"><span class="icon-add"></span></h3>
@@ -41,7 +42,7 @@
 				<h2>My Projects</h2>
 				<div class="container" id="content-projects">
 					<div class="project" ng-repeat="project in projects" 
-					ng-style="{'background': colors[$index]}">
+					ng-style="{'background': colors[$index]}" ng-click="enterProject($index)">
 						<div class="content-pro"></div>
 						<h4>[[ project.name ]]</h4>
 						<span>ID: [[ project._id ]]</span>
