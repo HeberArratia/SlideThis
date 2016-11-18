@@ -26,6 +26,29 @@ module.exports = function(io){
     		});	
 		});
 
+		//eliminar un proyuecto
+		socket.on('deleteproject', function(data) {
+	    	Project.findById(data.idpro, function(err, pro) {
+	        	pro.remove(function(err) {
+		            if (err){
+						console.log("hay un error al elimanr proyecto");
+					} else {
+						Project.find({iduser : data.iduser})
+							//Más recientes primero
+							.sort({moment: -1})
+							.exec(function(err, result) {
+							    if(err){
+						    		console.log("error en buscar proyectos por iduser");
+						    	} else {
+						     		socket.emit('loadprojects', result);
+						    	}
+			    		});	
+						console.log("proyecto eliminado");
+					}
+	        	});
+	    	});	
+		});
+
 		// obtener un proyecto por su id
 		socket.on('columnsbyproject', function(data) {
 			Column.find({idpro : data}, function(err, result) {

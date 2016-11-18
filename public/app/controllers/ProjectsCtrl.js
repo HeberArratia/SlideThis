@@ -30,4 +30,21 @@ app.controller('ProjectsCtrl', ['$scope', 'socket', '$window', '$timeout', funct
       } 
     });
   } 
+
+  $scope.deleteProject = function(index){
+    bootbox.confirm("Are you sure?", function(result){ 
+      if(result){
+        var proRemove = {
+          idpro  : $scope.projects[index]._id,
+          iduser : $scope.idUser
+        };
+        socket.emit('deleteproject', proRemove);
+      } 
+    });
+  }
+
+  $scope.getID = function(index){
+    bootbox.alert("ID: " + $scope.projects[index]._id);
+  }
+
 }]);

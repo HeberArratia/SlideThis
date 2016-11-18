@@ -486,7 +486,19 @@ body {
         top: 0;
         left: 0;
         opacity: 0; }
-    #projects #content-projects .project:hover {
-      cursor: pointer; }
+    
       #projects #content-projects .project:hover .content-pro {
         opacity: .06; }
+        /* Modificacion */
+        #projects .project .btn-project{
+            display: inline-block;
+            padding: 5px 15px;
+            border: 2px solid #fff;
+            font-size: 15px;
+            border-radius: 5px;
+            background: rgba(255,255,255, 0.07);
+        }
+        #projects .project .btn-project:hover{
+           background: rgba(255,255,255, 0.2);
+           cursor: pointer;
+        }

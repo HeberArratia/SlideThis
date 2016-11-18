@@ -54,10 +54,21 @@
 				<h2>My Projects</h2>
 				<div class="container" id="content-projects">
 					<div class="project" ng-repeat="project in projects" 
-					ng-style="{'background': colors[$index]}" ng-click="enterProject($index)">
-						<div class="content-pro"></div>
+					ng-style="{'background': colors[$index]}">
+						<!--<div class="content-pro"></div>-->
 						<h4>[[ project.name ]]</h4>
-						<span>ID: [[ project._id ]]</span>
+						<div class="pull-right">
+							<div class="btn-project btn-pro-id" ng-click="getID($index)">
+								Get ID
+							</div>
+							<div class="btn-project btn-pro-delete" ng-click="deleteProject($index)">
+								Delete
+							</div>
+							<div class="btn-project btn-pro-edit" ng-click="enterProject($index)">
+								Edit
+							</div>
+						</div>
+						<!--<span>ID: [[ project._id ]]</span>-->
 					</div>
 				</div>
 			</div>
