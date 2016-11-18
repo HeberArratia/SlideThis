@@ -23,9 +23,7 @@ router.route('/view/:idpro')
 		Project.findById(req.params.idpro, function(err, result) {
 			if(err){
 				console.log("error al encontrar el proyecto en view");
-				res.writeHeader(200, {"Content-Type": "text/html"});
-				res.write("Project Not Found <a href='/'>Home Page</a> <a href='/view'>View Page</a>");   
-        		res.end();
+				res.render('404');
 			} else {	
 				if (result !== null){
 					var context = {
@@ -35,9 +33,7 @@ router.route('/view/:idpro')
 			    	res.render('view', context);
 				} else {
 					console.log("error al encontrar el proyecto en view");
-					res.writeHeader(200, {"Content-Type": "text/html"});
-					res.write("Project Not Found <a href='/'>Home Page</a> <a href='/view'>View Page</a>");  
-        			res.end();
+					res.render('404');
 				}		
 			}
 		});
