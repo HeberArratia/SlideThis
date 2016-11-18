@@ -24,7 +24,7 @@ router.route('/view/:idpro')
 			if(err){
 				console.log("error al encontrar el proyecto en view");
 				res.writeHeader(200, {"Content-Type": "text/html"});
-				res.write("Project Not Found <a href='/'>Home Page</a>");  
+				res.write("Project Not Found <a href='/'>Home Page</a> <a href='/view'>View Page</a>");   
         		res.end();
 			} else {	
 				if (result !== null){
@@ -36,11 +36,16 @@ router.route('/view/:idpro')
 				} else {
 					console.log("error al encontrar el proyecto en view");
 					res.writeHeader(200, {"Content-Type": "text/html"});
-					res.write("Project Not Found <a href='/'>Home Page</a>");  
+					res.write("Project Not Found <a href='/'>Home Page</a> <a href='/view'>View Page</a>");  
         			res.end();
 				}		
 			}
 		});
+	});
+
+	router.route('/view')
+	.get(function(req,res){	
+		res.render('viewinput');				
 	});
 
 router.route('/dashboard/:idpro')

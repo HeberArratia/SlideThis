@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>View Project - SlideThis</title>
+	<link rel="stylesheet" href="/lib/css/loginstyles.css">
+</head>
+<style>
+	.logo{
+		width: 200px !important;
+	}
+	img{
+		margin-bottom: 20px;
+	}
+</style>
+<body class="align">
+  <div class="site__container">
+	    <div class="grid__container">
+	    	<img class="logo" src="http://104.236.61.174/files/logo.svg" />
+	    	
+	        <form class="form form--login">
+		        <div class="form__field">
+		          <label  for="idProject"><span>ID</span></label>
+		          <input id="idProject" type="text" class="form__input" placeholder="Insert Project ID" name="idProject">
+		        </div>
+		        <div class="form__field">
+		          <input id="enter" type="submit" value="VIEW">
+		        </div>
+	        </form>
+    	</div>
+  </div>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js'></script>
+  <script>
+  	$('#enter').click(function(e){
+  		e.preventDefault();
+
+  		window.location.href = "/view/" + $('#idProject').val();
+  	});
+  </script>
+</body>
+</html>
