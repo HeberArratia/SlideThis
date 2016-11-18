@@ -18,10 +18,30 @@ router.route('/projects')
 		res.render('projects', context);
 	});
 
-/*router.route('/dashboard')
-	.get(isLoggedIn, function(req,res){
-		res.render('dashboard');
-	});*/
+router.route('/view/:idpro')
+	.get(function(req,res){
+		Project.findById(req.params.idpro, function(err, result) {
+			if(err){
+				console.log("error al encontrar el proyecto en view");
+				res.writeHeader(200, {"Content-Type": "text/html"});
+				res.write("Project Not Found <a href='/'>Home Page</a>");  
+        		res.end();
+			} else {	
+				if (result !== null){
+					var context = {
+						id_pro : req.params.idpro
+					}			
+					console.log(context);
+			    	res.render('view', context);
+				} else {
+					console.log("error al encontrar el proyecto en view");
+					res.writeHeader(200, {"Content-Type": "text/html"});
+					res.write("Project Not Found <a href='/'>Home Page</a>");  
+        			res.end();
+				}		
+			}
+		});
+	});
 
 router.route('/dashboard/:idpro')
 	.get(isLoggedIn, function(req,res){

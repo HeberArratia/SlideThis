@@ -21,7 +21,7 @@ module.exports = function(io){
 				    if(err){
 			    		console.log("error en buscar proyectos por iduser");
 			    	} else {
-			     		io.sockets.emit('loadprojects', result);
+			     		socket.emit('loadprojects', result);
 			    	}
     		});	
 		});
@@ -32,7 +32,7 @@ module.exports = function(io){
 			    if(err){
 			    	console.log("error al buscar columnas por id de proyecto");
 			    } else {
-			     	io.sockets.emit('loadcolumns', result);
+			     	socket.emit('loadcolumns', result);
 			    }
 	    	});		
 		});
@@ -55,7 +55,7 @@ module.exports = function(io){
 						    if(err){
 					    	console.log("error en buscar proyectos por iduser");
 					    		} else {
-					     		io.sockets.emit('loadprojects', result);
+					     		socket.emit('loadprojects', result);
 					    	}
 		    		});	
 				}
@@ -73,6 +73,7 @@ module.exports = function(io){
 					    	console.log("error al guardar las nuevas columnas actualizadas " + err);
 					    } else {
 					    	console.log("las columnas se han actualizado");
+					    	io.sockets.emit('loadcolumnsinview' + columns[0].idpro + '', columns);
 					    }
 			     	});
 			    }

@@ -27,7 +27,6 @@
 </head>
 <body ng-app="mainApp">
 	<div id="page-container" ng-controller="DashCtrl">
-
 		<!-- Barra superior -->
 		<div id="main-bar" class="container-fluit">
 			<div id="row-1">
@@ -55,7 +54,7 @@
 				            ID: {{ id_pro }}</span> 
 			            </div>
 						<div class="divisor">
-				            <div class="btn" id="btn-preview"><i class="icon-desktop_windows" aria-hidden="true"></i> Preview</div>
+				            <a target="_blank" href="/view/{{ id_pro }}"><div class="btn" id="btn-preview"><i class="icon-desktop_windows" aria-hidden="true"></i> Preview</div></a>
 				            <div ng-click="saveAll()" class="btn" id="btn-save"><i class="icon-save" aria-hidden="true"></i> Save</div>
 			            </div>
 					</div>

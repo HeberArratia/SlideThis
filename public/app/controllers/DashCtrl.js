@@ -24,15 +24,19 @@ app.controller('DashCtrl', ['$scope','$filter','cfpLoadingBar', '$timeout', 'soc
 
   //Guardar todas las columnas
   $scope.saveAll = function(){
-    cfpLoadingBar.start();
-    for (var i = $scope.columns.length - 1; i >= 0; i--) {
-      $scope.columns[i]["idpro"] = $scope.idProject;
-      delete $scope.columns[i]['$$hashKey']; 
-    }
-    socket.emit('updatecolumns', $scope.columns);
-    $timeout( function(){ 
-      cfpLoadingBar.complete();
-    }, 900);
+      if(cantElem > 0){
+        cfpLoadingBar.start();
+        for (var i = $scope.columns.length - 1; i >= 0; i--) {
+          $scope.columns[i]["idpro"] = $scope.idProject;
+          delete $scope.columns[i]['$$hashKey']; 
+        }
+        socket.emit('updatecolumns', $scope.columns);
+        $timeout( function(){ 
+          cfpLoadingBar.complete();
+        }, 900);
+      } else {
+        bootbox.alert("There is nothing to keep");
+      }
   }
 
   /*** Switch Add (Edit)  ***/
